@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.OffsetDateTime;
 
@@ -53,6 +54,7 @@ public class Student {
     /**
      * The Created at.
      */
+    @CreationTimestamp
     @Column(name = "created_at")
     private OffsetDateTime createdAt;
 
