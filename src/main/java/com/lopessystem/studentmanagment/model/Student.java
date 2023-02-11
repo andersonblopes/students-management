@@ -62,5 +62,5 @@ public class Student {
      * The Active.
      */
     @Column(name = "active")
-    private Boolean active;
+    private Boolean active = Boolean.TRUE;
 }

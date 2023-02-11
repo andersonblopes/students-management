@@ -7,16 +7,37 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="row">
-        <h1>List Students</h1>
-    </div>
-    <div class="row">
-        <div class="col-lg-3">
-            <a th:href="@{students/new}" class="btn btn-primary btn-sm mb-3">Add Student</a>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Students Management System</a>
 
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students}">Student Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-3">
+
+    <div class="row">
+        <div class="col-md-3">
+            <h1>List Students</h1>
+        </div>
+
+        <div class="col-md-9">
+            <a th:href="@{students/new}" class="btn btn-primary btn-sm float-right">Add Student</a>
         </div>
     </div>
+
     <div class="row">
 
         <table class="table table-striped table-bordered">
@@ -38,7 +59,6 @@
                 <td th:text="${student.email}"></td>
                 <td class="text-center" th:text="${#temporals.format(student.createdAt, 'dd/MM/yyyy HH:mm')}"></td>
                 <td class="text-center">#</td>
-
             </tr>
             </tbody>
         </table>
