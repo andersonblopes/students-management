@@ -1,11 +1,14 @@
 package com.lopessystem.studentmanagment.controller;
 
+import com.lopessystem.studentmanagment.model.Student;
 import com.lopessystem.studentmanagment.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * The type Student controller.
@@ -32,5 +35,23 @@ public class StudentController {
         model.addAttribute("students", studentService.list());
 
         return "students";
+    }
+
+    @GetMapping("/students/new")
+    public String createStudentForm(final Model model) {
+
+        // Create student object to hold student form data
+        final Student student = new Student();
+        model.addAttribute("student", student);
+
+        return "create_student";
+    }
+
+    @PostMapping("/students")
+    public String saveStudent(@ModelAttribute("student") final Student student) {
+
+        studentService.save(student);
+
+        return "redirect:/students";
     }
 }

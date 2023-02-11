@@ -24,4 +24,12 @@ public interface StudentService {
      * @return the list
      */
     List<Student> list();
+
+    /**
+     * Save student.
+     *
+     * @param student the student
+     * @return the student
+     */
+    Student save(Student student);
 }
