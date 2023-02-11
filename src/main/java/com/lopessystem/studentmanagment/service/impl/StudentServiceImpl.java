@@ -68,4 +68,14 @@ public class StudentServiceImpl implements StudentService {
     public Student update(final Student student) {
         return studentRepository.save(student);
     }
+
+    /**
+     * Delete.
+     *
+     * @param id the id
+     */
+    @Override
+    public void delete(final Long id) {
+        studentRepository.deleteById(id);
+    }
 }

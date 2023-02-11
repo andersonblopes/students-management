@@ -32,7 +32,7 @@ public interface StudentService {
      * @return the student
      */
     Student save(Student student);
-    
+
     /**
      * Update student.
      *
@@ -40,4 +40,6 @@ public interface StudentService {
      * @return the student
      */
     Student update(Student student);
+    
+    void delete(Long id);
 }

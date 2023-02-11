@@ -38,6 +38,12 @@ public class StudentController {
         return "students";
     }
 
+    /**
+     * Create student form string.
+     *
+     * @param model the model
+     * @return the string
+     */
     @GetMapping("/students/new")
     public String createStudentForm(final Model model) {
 
@@ -48,6 +54,12 @@ public class StudentController {
         return "create_student";
     }
 
+    /**
+     * Save student string.
+     *
+     * @param student the student
+     * @return the string
+     */
     @PostMapping("/students")
     public String saveStudent(@ModelAttribute("student") final Student student) {
 
@@ -56,6 +68,13 @@ public class StudentController {
         return "redirect:/students";
     }
 
+    /**
+     * Edit student form string.
+     *
+     * @param id    the id
+     * @param model the model
+     * @return the string
+     */
     @GetMapping("/students/edit/{id}")
     public String editStudentForm(@PathVariable final Long id, final Model model) {
 
@@ -65,6 +84,14 @@ public class StudentController {
         return "edit_student";
     }
 
+    /**
+     * Edit string.
+     *
+     * @param id      the id
+     * @param student the student
+     * @param model   the model
+     * @return the string
+     */
     @PostMapping("/students/{id}")
     public String edit(@PathVariable final Long id,
                        @ModelAttribute("student") final Student student,
@@ -77,6 +104,20 @@ public class StudentController {
         existingStudent.setEmail(student.getEmail());
 
         studentService.update(existingStudent);
+
+        return "redirect:/students";
+    }
+
+    /**
+     * Delete string.
+     *
+     * @param id the id
+     * @return the string
+     */
+    @GetMapping("/students/{id}")
+    public String delete(@PathVariable final Long id) {
+
+        studentService.delete(id);
 
         return "redirect:/students";
     }
