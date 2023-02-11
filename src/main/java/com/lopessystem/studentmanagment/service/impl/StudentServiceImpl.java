@@ -5,12 +5,16 @@ import com.lopessystem.studentmanagment.repository.StudentRepository;
 import com.lopessystem.studentmanagment.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * The type Student service.
  */
 @Slf4j
 @RequiredArgsConstructor
+@Service
 public class StudentServiceImpl implements StudentService {
 
     /**
@@ -31,5 +35,15 @@ public class StudentServiceImpl implements StudentService {
         log.info("id: {}", id);
 
         return studentRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * List list.
+     *
+     * @return the list
+     */
+    @Override
+    public List<Student> list() {
+        return studentRepository.findAll();
     }
 }

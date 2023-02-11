@@ -1,12 +1,12 @@
 package com.lopessystem.studentmanagment.service;
 
 import com.lopessystem.studentmanagment.model.Student;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * The interface Student service.
  */
-@Service
 public interface StudentService {
 
     /**
@@ -16,4 +16,12 @@ public interface StudentService {
      * @return the student
      */
     Student findById(Long id);
+
+
+    /**
+     * List list.
+     *
+     * @return the list
+     */
+    List<Student> list();
 }
