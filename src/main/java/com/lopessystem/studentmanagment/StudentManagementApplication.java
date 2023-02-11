@@ -17,6 +17,9 @@ import java.util.Arrays;
 @SpringBootApplication
 public class StudentManagementApplication implements CommandLineRunner {
 
+    /**
+     * The Student repository.
+     */
     private final StudentRepository studentRepository;
 
     /**
@@ -28,13 +31,19 @@ public class StudentManagementApplication implements CommandLineRunner {
         SpringApplication.run(StudentManagementApplication.class, args);
     }
 
+    /**
+     * Run.
+     *
+     * @param args the args
+     * @throws Exception the exception
+     */
     @Override
     public void run(final String... args) throws Exception {
 
         final Student anderson = new Student(1L, "Anderson", "Lopes", "anderson@email.com", OffsetDateTime.now(), Boolean.TRUE);
         final Student elaine = new Student(2L, "Elaine", "Lopes", "elaine@email.com", OffsetDateTime.now(), Boolean.TRUE);
         final Student helena = new Student(3L, "Halena", "Lopes", "helena@email.com", OffsetDateTime.now(), Boolean.TRUE);
-        
+
         studentRepository.saveAll(Arrays.asList(anderson, elaine, helena));
 
     }
