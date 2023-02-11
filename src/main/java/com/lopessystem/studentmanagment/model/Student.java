@@ -36,7 +36,7 @@ public class Student {
     /**
      * The First name.
      */
-    @Column(name = "first:name")
+    @Column(name = "first_name")
     private String firstName;
 
     /**
