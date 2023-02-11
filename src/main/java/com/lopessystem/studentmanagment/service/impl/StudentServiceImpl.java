@@ -57,4 +57,15 @@ public class StudentServiceImpl implements StudentService {
     public Student save(final Student student) {
         return studentRepository.save(student);
     }
+
+    /**
+     * Update student.
+     *
+     * @param student the student
+     * @return the student
+     */
+    @Override
+    public Student update(final Student student) {
+        return studentRepository.save(student);
+    }
 }

@@ -32,4 +32,12 @@ public interface StudentService {
      * @return the student
      */
     Student save(Student student);
+    
+    /**
+     * Update student.
+     *
+     * @param student the student
+     * @return the student
+     */
+    Student update(Student student);
 }
