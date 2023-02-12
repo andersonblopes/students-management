@@ -12,6 +12,6 @@ docker-build:
     - apk add maven
     - sh build.sh
     - echo '  @@@  building images @@@ '
-    - docker build -t registry.gitlab.com/anderson.lopes.2010/student-management .
+    - docker build --tag registry.gitlab.com/anderson.lopes.2010/student-management .
     - docker push registry.gitlab.com/anderson.lopes.2010/student-management  
     - echo 'done'
