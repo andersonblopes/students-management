@@ -1,28 +1,49 @@
 version: '3.8'
 networks:
-  is-network:
+  app-network:
     driver: bridge
 volumes:
-  pgadmin-data:
+  pgadmin_data:
   postgresql_data:
 services:
-  db:
+  app:
+    image: 'andersonblopes/student-management'
+    ports:
+      - "8888:8888"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - SERVER_PORT=8888
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=student_management_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=root
+    networks:
+      - app-network
+  postgres:
     image: postgres
-    container_name: db
+    container_name: postgres
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_DB: postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     ports:
       - "5432:5432"
     volumes:
       - postgresql_data:/var/lib/postgresql/data
     networks:
-      - is-network
+      - app-network
   pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin4_container
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin4
     restart: always
     ports:
       - "5050:80"
@@ -30,6 +51,6 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@email.com
       PGADMIN_DEFAULT_PASSWORD: admin
     volumes:
-      - pgadmin-data:/var/lib/pgadmin
+      - pgadmin_data:/var/lib/pgadmin
     networks:
-      - is-network
+      - app-network
