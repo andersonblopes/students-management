@@ -7,3 +7,5 @@ docker-build:
     - docker login registry.gitlab.com  -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
   script:
     - echo ' " @@@  building images @@@ '
+    - docker build -t registry.gitlab.com/anderson.lopes.2010/student-management .
+    - docker push registry.gitlab.com/anderson.lopes.2010/student-management  
