@@ -7,6 +7,8 @@ volumes:
   postgresql_data:
 services:
   app:
+    build:
+      dockerfile: Dockerfile
     image: 'andersonblopes/student-management'
     ports:
       - "8888:8888"
