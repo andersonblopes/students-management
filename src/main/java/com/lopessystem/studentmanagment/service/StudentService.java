@@ -40,6 +40,11 @@ public interface StudentService {
      * @return the student
      */
     Student update(Student student);
-    
+
+    /**
+     * Delete.
+     *
+     * @param id the id
+     */
     void delete(Long id);
 }

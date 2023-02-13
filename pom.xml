@@ -16,6 +16,7 @@
     <properties>
         <java.version>17</java.version>
         <lombok.version>1.18.20</lombok.version>
+        <maven.pmd.plugin.version>3.20.0</maven.pmd.plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -89,6 +90,21 @@
                             <artifactId>spring-boot-configuration-processor</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${maven.pmd.plugin.version}</version>
+                <configuration>
+                    <targetJdk>${java.version}</targetJdk>
+                    <excludes>
+                        <exclude>**/*Exception.java</exclude>
+                    </excludes>
+                    <rulesets>
+                        <ruleset>/ruleset.xml</ruleset>
+                    </rulesets>
                 </configuration>
             </plugin>
         </plugins>

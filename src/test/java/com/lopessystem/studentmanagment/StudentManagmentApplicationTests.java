@@ -2,8 +2,11 @@ package com.lopessystem.studentmanagment;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * The type Student managment application tests.
+ */
 @SpringBootTest
-class StudentManagmentApplicationTests {
-    
+public class StudentManagmentApplicationTests {
+
 
 }
