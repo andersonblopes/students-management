@@ -8,7 +8,7 @@ docker-build:
   script:
     - echo '  @@@  building artefacts @@@ '
     - apk update
-    - apk add eclipse-temurin:17
+    - apk add openjdk17
     - apk add maven
     - sh build.sh
     - echo '  @@@  building images @@@ '
