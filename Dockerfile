@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM eclipse-temurin:17
 VOLUME /tmp
 ARG JAR_FILE=target/student-management.jar
 ADD ${JAR_FILE} student-management.jar

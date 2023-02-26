@@ -8,10 +8,10 @@ docker-build:
   script:
     - echo '  @@@  building artefacts @@@ '
     - apk update
-    - apk add openjdk17
+    - apk add eclipse-temurin:17
     - apk add maven
     - sh build.sh
     - echo '  @@@  building images @@@ '
     - docker build --tag registry.gitlab.com/anderson.lopes.2010/student-management .
-    - docker push registry.gitlab.com/anderson.lopes.2010/student-management  
+    - docker push registry.gitlab.com/anderson.lopes.2010/student-management
     - echo 'done'
